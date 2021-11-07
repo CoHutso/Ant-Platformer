@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://forrest-set.tres" type="TileSet" id=1]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
+
+[node name="Level-2" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 16, 80 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 0, -2 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 851968, 0, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 2, 0, 917504, 3, 0, 917505, 5, 0, 917506, 5, 0, 917507, 5, 0, 917508, 4, 0, 983040, 3, 0, 983041, 5, 0, 983042, 5, 0, 983043, 5, 0, 983044, 4, 0, 1048576, 3, 0, 1048577, 5, 0, 1048578, 5, 0, 1048579, 5, 0, 1048580, 4, 0, 1114112, 3, 0, 1114113, 5, 0, 1114114, 5, 0, 1114115, 5, 0, 1114116, 4, 0 )

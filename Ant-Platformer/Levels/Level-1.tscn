@@ -1,9 +1,14 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://forrest-set.tres" type="TileSet" id=2]
 [ext_resource path="res://Art/rotating_coin.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Coin.gd" type="Script" id=4]
+[ext_resource path="res://Art/icon.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Goal.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 8, 8 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
@@ -58,10 +63,27 @@ extents = Vector2( 3, 3 )
 
 [node name="Level 1" type="Node2D"]
 
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( 192, 64 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+next_scene = "res://Levels/Level-2.tscn"
+
+[node name="Icon" type="Sprite" parent="Goal"]
+position = Vector2( -2.563e-06, -4.23193e-06 )
+scale = Vector2( 0.25, 0.25 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource( 26 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 32, 88 )
 gravity = 15
-jump_height = 250
+lerp_speed = 0.15
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -80,10 +102,10 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Coin"]
 frames = SubResource( 12 )
 animation = "Spin"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
 shape = SubResource( 25 )
 
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_Goal_body_entered"]
 [connection signal="body_entered" from="Coin" to="Coin" method="_on_Coin_body_entered"]
