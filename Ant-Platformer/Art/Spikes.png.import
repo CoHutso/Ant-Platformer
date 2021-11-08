@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fall-Tileset.png-9b13ea350d9e869ca51a52b803fbd1b1.stex"
+path="res://.import/Spikes.png-00a599b368f0a358fa85719e268e6d39.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Fall-Tileset.png"
-dest_files=[ "res://.import/Fall-Tileset.png-9b13ea350d9e869ca51a52b803fbd1b1.stex" ]
+source_file="res://Art/Spikes.png"
+dest_files=[ "res://.import/Spikes.png-00a599b368f0a358fa85719e268e6d39.stex" ]
 
 [params]
 

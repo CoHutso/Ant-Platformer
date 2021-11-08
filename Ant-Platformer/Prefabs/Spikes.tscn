@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Art/Spikes.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=28]
+script/source = "tool
+extends Area2D
+
+export var length = 2
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Sprite.region_rect = Rect2(0, 0, 8 * length, 8)
+	$CollisionShape2D.shape.extents = Vector2(4 * length, 4)
+	$CollisionShape2D.position = Vector2(4 * length, 4)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	
+	if Engine.editor_hint:
+		$Sprite.region_rect = Rect2(0, 0, 8 * length, 8)
+		$CollisionShape2D.shape.extents = Vector2(4 * length, 4)
+		$CollisionShape2D.position = Vector2(4 * length, 4)
+		
+		
+"
+
+[sub_resource type="RectangleShape2D" id=27]
+resource_local_to_scene = true
+extents = Vector2( 16, 4 )
+
+[node name="Spikes" type="Area2D"]
+script = SubResource( 28 )
+__meta__ = {
+"_edit_group_": true
+}
+length = 4
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 4 )
+shape = SubResource( 27 )

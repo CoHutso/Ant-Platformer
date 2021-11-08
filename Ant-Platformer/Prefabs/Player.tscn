@@ -66,13 +66,14 @@ __meta__ = {
 "_edit_group_": true
 }
 speed = 100.0
+gravity = 15
 jump_height = 250
 lerp_speed = 0.175
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 19 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
